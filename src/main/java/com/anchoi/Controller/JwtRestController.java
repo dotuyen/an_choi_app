@@ -1,10 +1,12 @@
-package com.tuyendt.springbootloginwithjwt.Controller;
+package com.anchoi.Controller;
 
-//import com.tuyendt.springbootloginwithjwt.Dto.CustomUserDetails;
-import com.tuyendt.springbootloginwithjwt.Request.LoginRequest;
-import com.tuyendt.springbootloginwithjwt.Response.LoginResponse;
-import com.tuyendt.springbootloginwithjwt.Response.RandomStuff;
-//import com.tuyendt.springbootloginwithjwt.jwt.JwtTokenProvider;
+//import Dto.com.anchoi.CustomUserDetails;
+import com.anchoi.Dto.CustomUserDetails;
+import com.anchoi.jwt.JwtTokenProvider;
+import com.anchoi.Request.LoginRequest;
+import com.anchoi.Response.LoginResponse;
+import com.anchoi.Response.RandomStuff;
+//import jwt.com.anchoi.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,8 +23,8 @@ public class JwtRestController {
     @Autowired
     AuthenticationManager authenticationManager;
 
-//    @Autowired
-//    private JwtTokenProvider tokenProvider;
+    @Autowired
+    private JwtTokenProvider tokenProvider;
 
     @PostMapping("/login")
     public LoginResponse authenticateUser( @Valid @RequestBody LoginRequest loginRequest) {
@@ -40,8 +42,8 @@ public class JwtRestController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         // Trả về jwt cho người dùng.
-        String jwt = "";
-//        String jwt = tokenProvider.generateToken((CustomUserDetails) authentication.getPrincipal());
+//        String jwt = "";
+        String jwt = tokenProvider.generateToken((CustomUserDetails) authentication.getPrincipal());
         return new LoginResponse(jwt);
     }
 

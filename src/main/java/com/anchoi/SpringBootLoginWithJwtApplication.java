@@ -1,12 +1,10 @@
-package com.tuyendt.springbootloginwithjwt;
+package com.anchoi;
 
 //import com.tuyendt.springbootloginwithjwt.Entity.User;
-//import com.tuyendt.springbootloginwithjwt.Repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+//import Repository.com.anchoi.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class SpringBootLoginWithJwtApplication implements CommandLineRunner {
@@ -16,8 +14,8 @@ public class SpringBootLoginWithJwtApplication implements CommandLineRunner {
 
 //    @Autowired
 //    UserRepository userRepository;
-    @Autowired
-    PasswordEncoder passwordEncoder;
+//    @Autowired
+//    PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {

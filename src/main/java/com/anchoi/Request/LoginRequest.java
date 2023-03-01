@@ -1,4 +1,4 @@
-package com.tuyendt.springbootloginwithjwt.Request;
+package com.anchoi.Request;
 
 import lombok.Data;
 

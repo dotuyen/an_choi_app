@@ -1,4 +1,4 @@
-package com.tuyendt.springbootloginwithjwt.Response;
+package com.anchoi.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
