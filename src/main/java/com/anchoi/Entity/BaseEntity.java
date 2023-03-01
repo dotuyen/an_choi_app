@@ -1,6 +1,6 @@
 package com.anchoi.Entity;
 
-import com.anchoi.util.SecurityUtil;
+//import com.anchoi.util.SecurityUtil;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -43,13 +43,13 @@ public class BaseEntity implements Serializable {
     @PrePersist
     public void prePersist() {
         this.setCreatedDate(Instant.now());
-        this.setCreatedUser(SecurityUtil.getCurrentUser());
+        this.setCreatedUser("system");
     }
 
     @PreUpdate
     public void preUpdate() {
         this.setUpdatedDate(Instant.now());
-        this.setUpdatedUser(SecurityUtil.getCurrentUser());
+        this.setUpdatedUser("system");
     }
 
 }
