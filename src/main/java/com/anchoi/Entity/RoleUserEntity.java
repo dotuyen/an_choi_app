@@ -19,7 +19,7 @@ public class RoleUserEntity extends BaseEntity {
     private String roleId;
     @Basic
     @Column(name = "user_id")
-    private Integer userId;
+    private String userId;
 //    @Basic
 //    @Column(name = "created_date")
 //    private Timestamp createdDate;

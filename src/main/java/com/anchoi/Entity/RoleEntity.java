@@ -3,10 +3,7 @@ package com.anchoi.Entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -14,11 +11,9 @@ import javax.persistence.Table;
 @Table(name = "role", schema = "an_choi_app", catalog = "")
 public class RoleEntity extends BaseEntity {
     @Basic
-    @Column(name = "role_id")
-    private String roleId;
-    @Basic
     @Column(name = "name")
-    private Integer name;
+    @Enumerated(EnumType.STRING)
+    private ERole name;
 //    @Basic
 //    @Column(name = "created_date")
 //    private Timestamp createdDate;
