@@ -17,7 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "user", schema = "an_choi_app", catalog = "",
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = "account_name")
+                @UniqueConstraint(columnNames = "username")
         })
 public class UserEntity extends BaseEntity {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
