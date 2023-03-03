@@ -10,8 +10,8 @@ import javax.validation.Valid;
 import com.anchoi.models.ERole;
 import com.anchoi.models.Role;
 import com.anchoi.models.User;
-import com.anchoi.payload.request.LoginRequest;
-import com.anchoi.payload.request.SignupRequest;
+import com.anchoi.request.LoginRequest;
+import com.anchoi.request.SignupRequest;
 import com.anchoi.payload.response.MessageResponse;
 import com.anchoi.payload.response.UserInfoResponse;
 import com.anchoi.repository.RoleRepository;
@@ -81,9 +81,9 @@ public class AuthController {
       return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
     }
 
-    if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-      return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
-    }
+//    if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+//      return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
+//    }
 
     // Create new user's account
     User user = new User(signUpRequest.getUsername(),

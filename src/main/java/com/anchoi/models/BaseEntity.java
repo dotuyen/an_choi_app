@@ -31,25 +31,25 @@ public class BaseEntity implements Serializable {
     @Column(name = "created_date", nullable = false)
     private Instant createdDate;
 
-    @Column(name = "created_user", nullable = false)
-    private String createdUser;
+    @Column(name = "created_by")
+    private String createdBy;
 
     @Column(name = "updated_date")
     private Instant updatedDate;
 
-    @Column(name = "updated_user")
-    private String updatedUser;
+    @Column(name = "updated_by")
+    private String updatedBy;
 
     @PrePersist
     public void prePersist() {
         this.setCreatedDate(Instant.now());
-        this.setCreatedUser("system");
+        this.setCreatedBy("system");
     }
 
     @PreUpdate
     public void preUpdate() {
         this.setUpdatedDate(Instant.now());
-        this.setUpdatedUser("system");
+        this.setUpdatedBy("system");
     }
 
 }
