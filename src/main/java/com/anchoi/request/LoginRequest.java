@@ -1,4 +1,4 @@
-package com.anchoi.payload.request;
+package com.anchoi.request;
 
 import javax.validation.constraints.NotBlank;
 
