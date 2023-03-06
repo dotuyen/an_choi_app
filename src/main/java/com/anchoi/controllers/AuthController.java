@@ -16,6 +16,7 @@ import com.anchoi.payload.response.MessageResponse;
 import com.anchoi.payload.response.UserInfoResponse;
 import com.anchoi.repository.RoleRepository;
 import com.anchoi.repository.UserRepository;
+import com.anchoi.response.JwtResponse;
 import com.anchoi.security.jwt.JwtUtils;
 import com.anchoi.security.services.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,17 +63,18 @@ public class AuthController {
 
     UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
-    ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
+    String jwt = jwtUtils.generateJwtToken(authentication);
+//    ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
 
     List<String> roles = userDetails.getAuthorities().stream()
         .map(item -> item.getAuthority())
         .collect(Collectors.toList());
 
-    return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
-        .body(new UserInfoResponse(userDetails.getId(),
-                                   userDetails.getUsername(),
-                                   userDetails.getEmail(),
-                                   roles));
+    return ResponseEntity.ok(new JwtResponse(jwt,
+            userDetails.getId(),
+            userDetails.getUsername(),
+            userDetails.getEmail(),
+            roles));
   }
 
   @PostMapping("/signup")
