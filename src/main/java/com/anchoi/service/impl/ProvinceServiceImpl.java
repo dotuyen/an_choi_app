@@ -1,5 +1,6 @@
 package com.anchoi.service.impl;
 
+import com.anchoi.config.BusinessException;
 import com.anchoi.models.Province;
 import com.anchoi.repository.ProvinceRepository;
 import com.anchoi.request.ProvinceRequest;
@@ -26,7 +27,11 @@ public class ProvinceServiceImpl implements ProvinceService {
     }
 
     @Override
-    public ProvinceResponse save(ProvinceRequest request) {
+    public ProvinceResponse save(ProvinceRequest request) throws BusinessException {
+        List<Province> provinces = provinceRepository.findByName(request.getName().toLowerCase());
+        if (!provinces.isEmpty())
+            throw new BusinessException("001","Province has exist");
+
         Province toSave = mapper.convertValue(request, Province.class);
         toSave.setId("");
         Province ent = provinceRepository.save(toSave);

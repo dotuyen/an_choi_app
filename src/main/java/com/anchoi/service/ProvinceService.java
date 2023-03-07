@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProvinceService {
 
-  ProvinceResponse save(ProvinceRequest request);
+  ProvinceResponse save(ProvinceRequest request) throws Exception;
   void delete(String id) throws Exception;
 
   ProvinceResponse findById(String id) throws Exception;

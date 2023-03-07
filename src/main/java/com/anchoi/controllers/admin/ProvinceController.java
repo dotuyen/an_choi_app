@@ -1,5 +1,6 @@
 package com.anchoi.controllers.admin;
 
+import com.anchoi.config.BusinessException;
 import com.anchoi.models.Province;
 import com.anchoi.request.ProvinceRequest;
 import com.anchoi.response.ProvinceResponse;
@@ -22,9 +23,14 @@ public class ProvinceController {
 
   @PostMapping("/v1.0/save")
   @PreAuthorize("hasRole('ADMIN')")
-  public ResponseEntity<?> saveProvince(@Valid @RequestBody ProvinceRequest request) {
-    ProvinceResponse response = provinceService.save(request);
-    return ResponseEntity.ok(response);
+  public ResponseEntity<?> saveProvince(@Valid @RequestBody ProvinceRequest request) throws Exception {
+    try {
+      ProvinceResponse response = provinceService.save(request);
+      return ResponseEntity.ok(response);
+    } catch (BusinessException businessException) {
+      return ResponseEntity.ok(new BusinessException(businessException.getCode(), businessException.getDesc()));
+    }
+
   }
 
   @PostMapping("/v1.0/update")

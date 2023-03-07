@@ -1,14 +1,15 @@
 package com.anchoi.repository;
 
-import com.anchoi.models.ERole;
 import com.anchoi.models.Province;
-import com.anchoi.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
 public interface ProvinceRepository extends JpaRepository<Province, String> {
-  Optional<Role> findByName(ERole name);
+
+  @Query(value="select * from Province p where lower(p.name) = :name", nativeQuery = true)
+  List<Province> findByName(String name);
 }
