@@ -4,17 +4,19 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "role_user", schema = "an_choi_app", catalog = "")
-public class RoleUser extends BaseEntity {
+public class RoleUser {
+    @Id
+    @Column(name = "id", nullable = true)
+    private UUID id;
+
     @Basic
     @Column(name = "role_id")
     private String roleId;
@@ -25,9 +27,9 @@ public class RoleUser extends BaseEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         RoleUser roleUser = (RoleUser) o;
-        return getId() != null && Objects.equals(getId(), roleUser.getId());
+        return Objects.equals(roleId, roleUser.roleId) && Objects.equals(userId, roleUser.userId);
     }
 
     @Override
