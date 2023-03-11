@@ -1,16 +1,13 @@
-package com.anchoi.request;
+package com.anchoi.response;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
-public class ProvinceRequest {
+public class DistrictResponse {
     private String id;
-    @NotBlank
     private String name;
-    private String squareArea;
-    private String type;
     private String population;
     private String density;
     private String yearOfDensity;
@@ -19,9 +16,11 @@ public class ProvinceRequest {
     private String latitude;
     private String longitude;
     private String mapImage;
-    private String driverCode;
     private String createdDate;
     private String createdBy;
     private String updatedDate;
     private String updatedBy;
+    private String provinceId;
+
+
 }

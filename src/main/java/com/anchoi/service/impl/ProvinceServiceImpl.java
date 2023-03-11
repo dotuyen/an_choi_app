@@ -43,7 +43,7 @@ public class ProvinceServiceImpl implements ProvinceService {
     @Override
     public void delete(String id) throws Exception {
         Optional<Province> entOpt = Optional.ofNullable(provinceRepository.findById(id)
-                .orElseThrow(() -> new Exception("Not found record")));
+                .orElseThrow(() -> new BusinessException("005", "Not found record")));
 
         entOpt.ifPresent(provinceRepository::delete);
     }
@@ -53,7 +53,7 @@ public class ProvinceServiceImpl implements ProvinceService {
         Province entity;
         ProvinceResponse response = null;
         Optional<Province> entOpt = Optional.ofNullable(provinceRepository.findById(id)
-                .orElseThrow(() -> new Exception("Not found record")));
+                .orElseThrow(() -> new BusinessException("005", "Not found record")));
         if (entOpt.isPresent()) {
             entity = entOpt.get();
             response = mapper.convertValue(entity, ProvinceResponse.class);
@@ -71,7 +71,7 @@ public class ProvinceServiceImpl implements ProvinceService {
     public ProvinceResponse update(ProvinceRequest request) throws Exception {
         ProvinceResponse response = null;
         Optional<Province> entOpt = Optional.ofNullable(provinceRepository.findById(request.getId())
-                .orElseThrow(() -> new Exception("Not found record")));
+                .orElseThrow(() -> new BusinessException("005","Not found record")));
         if (entOpt.isPresent()) {
             Province toUpdate = mapper.convertValue(request, Province.class);
 
