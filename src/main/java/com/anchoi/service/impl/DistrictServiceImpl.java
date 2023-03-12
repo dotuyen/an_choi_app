@@ -72,7 +72,7 @@ public class DistrictServiceImpl implements DistrictService {
     }
 
     @Override
-    public List<DistrictResponse> findAll() {
+    public List<DistrictResponse> findAll() throws BusinessException {
         return districtRepository.findAllWithProvinceName();
     }
 

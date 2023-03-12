@@ -23,5 +23,22 @@ public class DistrictResponse {
     private String provinceId;
     private String provinceName;
 
-
+    public DistrictResponse(String id, String name, String population, String density, String yearOfDensity, String coastline, String description, String latitude, String longitude, String mapImage, String createdDate, String createdBy, String updatedDate, String updatedBy, String provinceId, String provinceName) {
+        this.id = id;
+        this.name = name;
+        this.population = population;
+        this.density = density;
+        this.yearOfDensity = yearOfDensity;
+        this.coastline = coastline;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.mapImage = mapImage;
+        this.createdDate = createdDate;
+        this.createdBy = createdBy;
+        this.updatedDate = updatedDate;
+        this.updatedBy = updatedBy;
+        this.provinceId = provinceId;
+        this.provinceName = provinceName;
+    }
 }
