@@ -13,7 +13,7 @@ public interface DistrictService {
 
   DistrictResponse findById(String id) throws Exception;
 
-  List<District> findAll();
+  List<DistrictResponse> findAll();
 
   DistrictResponse update(DistrictRequest request) throws Exception;
 }

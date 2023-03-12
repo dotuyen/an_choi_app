@@ -58,7 +58,7 @@ public class DistrictController {
   }
 
   @GetMapping("/v1.0/find")
-  @PreAuthorize("hasRole('ADMIN')")
+//  @PreAuthorize("hasRole('ADMIN')")
   public ResponseEntity<?> findById(@NotBlank String id) throws Exception {
     try {
       DistrictResponse response = districtService.findById(id);
@@ -70,9 +70,9 @@ public class DistrictController {
   }
 
   @GetMapping("/v1.0/findAll")
-  @PreAuthorize("hasRole('ADMIN')")
+//  @PreAuthorize("hasRole('ADMIN')")
   public ResponseEntity<?> findAll() {
-    List<District> response = districtService.findAll();
+    List<DistrictResponse> response = districtService.findAll();
 
     return ResponseEntity.ok(response);
   }
