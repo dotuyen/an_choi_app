@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.Date;
+
 @SqlResultSetMapping(name = "FIND_ALL_WITH_PROVINCE_NAME",
         classes = @ConstructorResult(
                     targetClass = DistrictResponse.class,
@@ -19,9 +21,9 @@ import javax.persistence.*;
                         @ColumnResult(name = "latitude", type = String.class),
                         @ColumnResult(name = "longitude", type = String.class),
                         @ColumnResult(name = "mapImage", type = String.class),
-                        @ColumnResult(name = "createdDate", type = String.class),
+                        @ColumnResult(name = "createdDate", type = Date.class),
                         @ColumnResult(name = "createdBy", type = String.class),
-                        @ColumnResult(name = "updatedDate", type = String.class),
+                        @ColumnResult(name = "updatedDate", type = Date.class),
                         @ColumnResult(name = "updatedBy", type = String.class),
                         @ColumnResult(name = "provinceId", type = String.class),
                         @ColumnResult(name = "provinceName", type = String.class),
