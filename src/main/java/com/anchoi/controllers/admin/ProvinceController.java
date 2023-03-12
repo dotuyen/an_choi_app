@@ -57,7 +57,7 @@ public class ProvinceController {
   }
 
   @GetMapping("/v1.0/find")
-  @PreAuthorize("hasRole('ADMIN')")
+//  @PreAuthorize("hasRole('ADMIN')")
   public ResponseEntity<?> findById(@NotBlank String id) throws Exception {
     try {
       ProvinceResponse response = provinceService.findById(id);
@@ -69,7 +69,7 @@ public class ProvinceController {
   }
 
   @GetMapping("/v1.0/findAll")
-  @PreAuthorize("hasRole('ADMIN')")
+//  @PreAuthorize("hasRole('ADMIN')")
   public ResponseEntity<?> findAll() {
     List<Province> response = provinceService.findAll();
 

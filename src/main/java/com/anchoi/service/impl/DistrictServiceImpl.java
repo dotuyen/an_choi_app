@@ -72,8 +72,8 @@ public class DistrictServiceImpl implements DistrictService {
     }
 
     @Override
-    public List<District> findAll() {
-        return districtRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
+    public List<DistrictResponse> findAll() {
+        return districtRepository.findAllWithProvinceName();
     }
 
     @Override
