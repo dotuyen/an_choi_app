@@ -22,10 +22,10 @@ public class ProvinceRequest {
     private String longitude;
     private String mapImage;
     private String driverCode;
-    @JsonFormat(pattern="dd/MM/yyyy HH24:mi:ss")
+    @JsonFormat(pattern="dd/MM/yyyy HH:mi:ss")
     private Date createdDate;
     private String createdBy;
-    @JsonFormat(pattern="dd/MM/yyyy HH24:mi:ss")
+    @JsonFormat(pattern="dd/MM/yyyy HH:mi:ss")
     private Date updatedDate;
     private String updatedBy;
 }
