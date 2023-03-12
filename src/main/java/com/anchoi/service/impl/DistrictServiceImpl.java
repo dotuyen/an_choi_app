@@ -85,8 +85,8 @@ public class DistrictServiceImpl implements DistrictService {
                 .orElseThrow(() -> new BusinessException("005","Not found record")));
         if (entOpt.isPresent()) {
             // k cho phep sua ma tinh (provinceId)
-            if (!request.getProvinceId().equals(entOpt.get().getProvinceId()))
-                throw new BusinessException("004", "Province not allowed update");
+//            if (!request.getProvinceId().equals(entOpt.get().getProvinceId()))
+//                throw new BusinessException("004", "Province not allowed update");
             District toUpdate = mapper.convertValue(request, District.class);
 
             District updatedEnt = districtRepository.save(toUpdate);

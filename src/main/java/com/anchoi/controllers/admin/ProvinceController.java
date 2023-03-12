@@ -3,7 +3,6 @@ package com.anchoi.controllers.admin;
 import com.anchoi.config.BusinessException;
 import com.anchoi.models.Province;
 import com.anchoi.request.ProvinceRequest;
-import com.anchoi.response.DistrictResponse;
 import com.anchoi.response.ProvinceResponse;
 import com.anchoi.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
