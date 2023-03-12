@@ -1,8 +1,10 @@
 package com.anchoi.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 @Data
 public class DistrictRequest {
@@ -16,9 +18,11 @@ public class DistrictRequest {
     private String latitude;
     private String longitude;
     private String mapImage;
-    private String createdDate;
+    @JsonFormat(pattern="dd/MM/yyyy HH24:mm:ss")
+    private Date createdDate;
     private String createdBy;
-    private String updatedDate;
+    @JsonFormat(pattern="dd/MM/yyyy HH24:mm:ss")
+    private Date updatedDate;
     private String updatedBy;
     @NotBlank(message = "provinceId not null")
     private String provinceId;

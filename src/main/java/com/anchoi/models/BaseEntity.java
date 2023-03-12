@@ -7,7 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.Instant;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -29,26 +29,26 @@ public class BaseEntity implements Serializable {
 //    private Status status;
 
     @Column(name = "created_date", nullable = false)
-    private Instant createdDate;
+    private Date createdDate;
 
     @Column(name = "created_by")
     private String createdBy;
 
     @Column(name = "updated_date")
-    private Instant updatedDate;
+    private Date updatedDate;
 
     @Column(name = "updated_by")
     private String updatedBy;
 
     @PrePersist
     public void prePersist() {
-        this.setCreatedDate(Instant.now());
+        this.setCreatedDate(new Date());
         this.setCreatedBy("system");
     }
 
     @PreUpdate
     public void preUpdate() {
-        this.setUpdatedDate(Instant.now());
+        this.setUpdatedDate(new Date());
         this.setUpdatedBy("system");
     }
 
