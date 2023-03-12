@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface DistrictRepository extends JpaRepository<District, String> {
 
-  @Query(value="select * from District d where lower(d.name) = :name", nativeQuery = true)
+  @Query(value="select * from district d where lower(d.name) = :name", nativeQuery = true)
   List<District> findByName(String name);
 
-  @Query(value="select * from District d where lower(d.name) = :name and d.province_id = :provinceId", nativeQuery = true)
+  @Query(value="select * from district d where lower(d.name) = :name and d.province_id = :provinceId", nativeQuery = true)
   List<District> findByNameAndProvinceId(String name, String provinceId);
 }
