@@ -71,7 +71,7 @@ public class DistrictController {
 
   @GetMapping("/v1.0/findAll")
 //  @PreAuthorize("hasRole('ADMIN')")
-  public ResponseEntity<?> findAll() {
+  public ResponseEntity<?> findAll() throws BusinessException {
     List<DistrictResponse> response = districtService.findAll();
 
     return ResponseEntity.ok(response);

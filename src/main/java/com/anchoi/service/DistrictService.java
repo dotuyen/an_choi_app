@@ -1,5 +1,6 @@
 package com.anchoi.service;
 
+import com.anchoi.config.BusinessException;
 import com.anchoi.models.District;
 import com.anchoi.request.DistrictRequest;
 import com.anchoi.response.DistrictResponse;
@@ -13,7 +14,7 @@ public interface DistrictService {
 
   DistrictResponse findById(String id) throws Exception;
 
-  List<DistrictResponse> findAll();
+  List<DistrictResponse> findAll() throws BusinessException;
 
   DistrictResponse update(DistrictRequest request) throws Exception;
 }
